@@ -11,19 +11,21 @@ namespace microSerPersona.Controllers
     {
         // GET: api/<PersonaController>
         [HttpGet]
-        public async Task<List<Persona>> Get()
+        public async Task<List<Usuario>> Get()
         {
-            List<Persona> personas = new List<Persona>();
-            for (int i = 0; i < 10; i++)
-            {
-                personas.Add(new Persona()
-                {
-                    Nombre = $"Persona {i}",
-                    Apellido = $"Apellido {i}",
-                    Edad = i + 10
-                });
-            }
-            return personas;
+            PersonasContext context = new PersonasContext();
+            List<Usuario> usuarios =  context.Usuarios.ToList();
+            //List<Persona> personas = new List<Persona>();
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    personas.Add(new Persona()
+            //    {
+            //        Nombre = $"Persona {i}",
+            //        Apellido = $"Apellido {i}",
+            //        Edad = i + 10
+            //    });
+            //}
+            return usuarios;
         }
 
         // POST api/<PersonaController>
